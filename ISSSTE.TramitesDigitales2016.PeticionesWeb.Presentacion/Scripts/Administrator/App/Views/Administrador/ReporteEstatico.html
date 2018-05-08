@@ -1,0 +1,100 @@
+﻿<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <h3>Reporte Estático</h3>
+    </div>
+</div>
+<div class="row" id="alertPanel" style="padding-top: 40px">
+    <div id="infoPanel" class="alert alert-success alert-dismissible col-md-12" ng-if="InfoMessage.entitleSuccessMsg !== undefined">
+        <div style="color: black !important; text-align: center">{{InfoMessage.entitleSuccessMsg}}</div>
+    </div>
+    <div id="errorPanel" class="alert alert alert-danger alert-dismissible col-md-12" ng-if="InfoMessage.entitleErrorMsg !== undefined" style="color:#710000;">
+        <div style="color: black !important; text-align: center">{{InfoMessage.entitleErrorMsg}}</div>
+    </div>
+</div>
+<form name="reporteEstaticoForm" id="reporteEstaticoForm" role="form" ng-submit="getReporteEstatico(reporteEstaticoForm)" novalidate>
+    <div class="row" style="padding-top: 40px">
+        <div class="form-group col-md-4">
+            <label for="slctAgeRangeStatic" class="control-label">Edades:</label>
+            <select id="slctAgeRangeStatic" ng-model="staticAgeRange" ng-options="ItemRangoEdad.Descripcion for ItemRangoEdad in rangoEdadesList" name="slctAgeRangeStatic" class="form-control">
+                <option value="" selected>--Selecciona--</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="slctGenderStatic" class="control-label">Género:</label>
+            <select id="slctGenderStatic" ng-model="staticGender" ng-options="ItemGenero.Genero for ItemGenero in generoList" name="slctGenderStatic" class="form-control">
+                <option value="" selected>--Selecciona--</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="slctStateStatic" class="control-label">Estado:</label>
+            <select id="slctStateStatic" ng-model="staticState" ng-options="ItemEstado.Nombre for ItemEstado in estadosList" name="slctStateStatic" class="form-control">
+                <option value="" selected>--Selecciona--</option>
+            </select>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 40px">
+        <div class="form-group ui-datepicker-group col-md-4">
+            <label for="dateInicioStatic" class="control-label">Fecha Inicio:*</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="initialCalendarStatic"><span class="glyphicon glyphicon-calendar"></span></span>
+                <input type="text" id="dateInicioStatic" name="dateInicioStatic" ng-model="dateStaticInitial" class="form-control" aria-describedby="initialCalendarStatic" required autocomplete="off"
+                       ng-class="{redBorderError: reporteEstaticoForm.dateInicioStatic.$invalid && reporteEstaticoForm.dateInicioStatic.$dirty}" ng-change="checkInitalDate(dateStaticInitial)" ng-pattern="regularExpressionDate"/>
+            </div>
+            <span class="tabValidation">*</span>
+            <span class="angularMsgError" ng-messages="reporteEstaticoForm.dateInicioStatic.$error" ng-if="reporteEstaticoForm.dateInicioStatic.$dirty">
+                <span ng-messages-include="mensajes-error"></span>
+            </span>
+        </div>
+        <div class="form-group ui-datepicker-group col-md-4">
+            <label for="dateFinStatic" class="control-label">Fecha Fin:*</label>
+            <div class="input-group">
+                <span class="input-group-addon" id="finalCalendarStatic"><span class="glyphicon glyphicon-calendar"></span></span>
+                <input type="text" id="dateFinStatic" name="dateFinStatic" ng-model="stateStaticFinal" class="form-control" aria-describedby="finalCalendarStatic" required autocomplete="off"
+                       ng-class="{redBorderError: reporteEstaticoForm.dateFinStatic.$invalid && reporteEstaticoForm.dateFinStatic.$dirty}" ng-change="checkFinalDate(stateStaticFinal)" ng-pattern="regularExpressionDate"/>
+            </div>
+            <span class="tabValidation">*</span>
+            <span class="angularMsgError" ng-messages="reporteEstaticoForm.dateFinStatic.$error" ng-if="reporteEstaticoForm.dateFinStatic.$dirty">
+                <span ng-messages-include="mensajes-error"></span>
+            </span>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 60px">
+        <div>*Campos obligatorios</div>
+        <div class="form-group col-md-2 col-md-offset-10">
+            <button type="submit" id="btnStaticReport" class="btn btn-lg btn-success">Generar reporte</button>
+        </div>
+        <div id="lista" filename="'Reporte_Estatico'" ng-json-export-excel data="lista" report-fields="{Destino: 'Destino', TemporadaVacacional: 'Temporada Vacacional', Viaje: 'Viaje', Genero:'Género', Edad:'Edad', Estado:'Estado'}" separator=",">
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+
+        $('#dateInicioStatic').datepicker({
+            maxDate: '0'
+        });
+
+        $('#dateFinStatic').datepicker({
+            maxDate: '0'
+        });
+    });
+</script>

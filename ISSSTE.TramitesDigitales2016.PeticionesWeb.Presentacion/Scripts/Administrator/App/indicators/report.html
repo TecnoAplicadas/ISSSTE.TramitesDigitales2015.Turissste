@@ -1,0 +1,49 @@
+﻿<div data-ng-controller="indicatorsController as vm" data-ng-init="vm.initDelegations()">
+    <div class="col-xs-12">
+        <h2>Reporte de indicadores</h2>
+        <hr class="red">
+    </div>
+
+    <!--/ END TITLE -->
+
+    <!-- START CONTENT -->
+
+    <div class="col-xs-12">
+        <div class="alerts"></div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-lg-4 col-md-6">
+            <label class="control-label">Delegación:</label>
+            <select class="form-control"
+                    data-ng-options="actualDelegation.Name for actualDelegation in vm.delegations"
+                    data-ng-model="vm.selectedDelegetaion">
+            </select>
+        </div>
+        <div class="form-group col-lg-4 col-md-6">
+            <label class="control-label">Fecha inical:</label>
+            <input type="text" class="form-control" data-ng-show="!vm.isEntitle()" datetimepicker
+                   placeholder="Selecciona una fecha" datetimepicker-options="{ format: 'DD/MM/YYYY', locale: 'es' }"
+                   name="time" ng-model="vm.startDate">
+        </div>
+
+        <div class="form-group col-lg-4 col-md-6">
+            <label class="control-label">Fecha final:</label>
+            <input type="text" class="form-control" data-ng-show="!vm.isEntitle()" datetimepicker
+                   placeholder="Selecciona una fecha" datetimepicker-options="{ format: 'DD/MM/YYYY', locale: 'es'  }"
+                   name="time" ng-model="vm.endDate">
+        </div>
+        <div class="form-group col-lg-4 col-md-6">
+            <label class="control-label">Formato del reporte:</label>
+            <select class="form-control"
+                    data-ng-options="actualFormat.Name for actualFormat in vm.reportFormats"
+                    data-ng-model="vm.selectedFormat">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <a class="btn btn-primary pull-right" href="{{vm.getReportDownloadUrl()}}" target="_blank">Descargar reporte</a>
+        </div>
+    </div>
+</div>

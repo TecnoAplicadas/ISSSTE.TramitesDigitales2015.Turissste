@@ -1,0 +1,121 @@
+﻿<div data-ng-controller="searchQuotesController as vm" data-ng-init="vm.init()">
+    <!--/ START TITLE -->
+    <div class="col-xs-12">
+        <h2>Consulta de Cotizaciones de Productos y Servicios Funerarios</h2>
+        <hr class="red">
+    </div>
+
+    <!--/ END TITLE -->
+    <!-- START CONTENT -->
+
+    <div class="col-xs-12">
+        <div class="alerts"></div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ng-form name="form" role="form" novalidate="novalidate" >
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label class="control-label">
+                            <input type="radio" data-ng-model="vm.selectedCriterion" data-ng-value="vm.criteria.entitle.value" data-ng-change="vm.setCriterion(vm.criteria.entitle)" />
+                            Número de ISSSTE
+                        </label>
+                        <label class="control-label">
+                            <input type="radio" data-ng-model="vm.selectedCriterion" data-ng-value="vm.criteria.curp.value" data-ng-change="vm.setCriterion(vm.criteria.curp)" />
+                            CURP
+                        </label>
+                        <label class="control-label">
+                            <input type="radio" data-ng-model="vm.selectedCriterion" data-ng-value="vm.criteria.folio.value" data-ng-change="vm.setCriterion(vm.criteria.folio)" />
+                            Folio
+                        </label>
+                        <br />
+                        <div class="form-group col-md-10">
+                            <!--<input type="text" class="form-control" placeholder="{{vm.placeholder}}" pattern="{{vm.pattern}}" data-ng-model="vm.filter" />-->
+                            <input type="text" class="form-control" placeholder="{{vm.placeholder}}" data-ng-model="vm.filter" required/>
+                        </div>                                                
+                        <div class="form-group col-md-2">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-primary" data-ng-click="vm.searchQuotes()" data-ng-disabled="form.$invalid">
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+            </ng-form>
+          </div>
+     </div>
+
+    <div class="col-xs-12" data-ng-show="vm.withoutRecords">
+        <div class="alerts"><label class="control-label">La consulta no arrojó ningún resultado</label></div>
+    </div>
+
+    <div class="col-xs-10 pull-right marginbot-20 paddingright-0" data-ng-show="vm.products.length > 0">
+        <nav class="text-right">
+            <ul class="pagination">
+                <li data-ng-class="{ disabled: vm.isFirstPage() }">
+                    <a data-ng-click="vm.changeToPreviousPage()">&laquo;</a>
+                </li>
+                <li data-ng-repeat="actualPage in vm.pages"
+                    data-ng-class="{ active: vm.isPageSelected(actualPage) }">
+                    <a data-ng-click="vm.changeSelectedPage(actualPage)">{{actualPage}}</a>
+                </li>
+                <li data-ng-class="{ disabled: vm.isLasPage() }">
+                    <a data-ng-disabled="vm.isLasPage()"
+                       data-ng-click="vm.changeToNextPage()">&raquo;</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 marg-T50px">
+            <h3>Cotizaciones</h3>
+            <h4 class="hide">Folio: 0918271876376354</h4>
+            <div class="col-xs-12 grid2 marg-T20px overflow-table">
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th> <os-p>Folio</os-p></th>
+                            <th><os-p>Total ISSSTE</os-p></th>
+                            <th> <os-p>Total público</os-p> </th>
+                            <th><os-p>Adquirido</os-p></th>
+                            <th> Acciones </th>
+                        </tr>
+                    </thead>
+
+                    <tbody data-ng-repeat="aq in vm.quotes">
+                        <tr>
+                            <td> <os-p>{{$index + 1}}</os-p></td>
+                            <td> <os-p>{{aq.Folio}}</os-p></td>
+                            <td><os-p class="pIssste">{{aq.EntitleTotal | currency:"$"}}</os-p></td>
+                            <td> <os-p class="ppublico">{{aq.PublicTotal | currency:"$"}}</os-p></td>
+                            <td><input type="checkbox" data-ng-model="aq.Acquired" data-ng-change="vm.markAsAcquired(aq)" /></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Opciones
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a data-ng-click="vm.getReview(aq.QuotationId, nc.navigateQuoteDetail)">Ver</a></li>
+                                        <li><a data-ng-click="vm.getReport(aq.QuotationId)" ng-href = "{{vm.reportUrl}}" target="_blank" >Descargar</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    </div>

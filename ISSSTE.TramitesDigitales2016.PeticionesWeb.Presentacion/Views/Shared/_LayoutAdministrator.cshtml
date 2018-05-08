@@ -1,0 +1,92 @@
+﻿@using ISSSTE.Tramites2015.Common.Security.Helpers
+@{
+    ViewBag.Title = "Trámites Digitales 2016";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="@Url.Content("~/Images/Administrator/favicon.ico")" type="image/x-icon" />
+    @Styles.Render("~/bundles/administrator/css")
+</head>
+<body>
+    <header>
+        <!--/ START LOGO -->
+        <div class="container-fluid abl-logoheader">
+            <div class="row">
+                <img class="logo" src="@Url.Content("~/Images/Administrator/issste-logo.jpg")">
+
+                <div class="over">
+                    &nbsp;
+                    <span class="version">Versión 2.1</span>
+                </div>
+            </div>
+        </div>
+        <!--/ END LOGO
+
+
+        <!--/ START NAV -->
+        <div class="navbar navbar-default abl-navbar" role="navigation">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#side-menu" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="container-fluid">
+                <div>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="@Url.Action("Index", "Administrator", null, Request.Url.Scheme)">
+                                @ViewBag.Title
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-user">
+                        @if (Request.GetOwinContext().Authentication.User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                @{
+                                    var user = Request.GetOwinContext().GetAuthenticatedUser();
+
+                                    var displayName = String.IsNullOrEmpty(user.Name) ? user.UserName : user.Name;
+                                }
+                                <a class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user abl-usuarios" aria-hidden="true"></span> @displayName <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu multi-level">
+                                    <li><a href="@Url.Action("Logout", "Account", new { returnUrl = Url.Action("Index", "Administrator", null, Request.Url.Scheme) }, null)">Cerrar sesión</a></li>
+                                </ul>
+                            </li>
+                         }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <main>
+
+        <div ng-app="ISSSTE.TramitesDigitales2015.Turissste.App">
+            <input type="hidden" id="baseUrl" value="@String.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"))" />
+            @RenderBody()
+        </div>
+
+    </main>
+
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angular-auto-validate")
+    @Scripts.Render("~/bundles/angular-upload")
+    @Scripts.Render("~/bundles/bootstrap-datetimepicker")
+    @Scripts.Render("~/bundles/administrator/app")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/ramda")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/respond")
+    @Scripts.Render("~/bundles/utils")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

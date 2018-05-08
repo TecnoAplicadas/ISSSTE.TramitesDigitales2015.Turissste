@@ -1,0 +1,41 @@
+﻿.ei_fingerpoint {
+    cursor:pointer;
+}
+
+.unselectableText {
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+.LinkWithoutLine {
+    text-decoration: none;
+    font-weight:400;
+}
+
+.setMiddle {
+  line-height: 50px;
+}
+
+span.blackColor {
+    color: black;
+}
+
+span.tabValidation {
+    color:white;
+    font-size: 14px;
+    margin-left: -1em;
+}
+
+.angularMsgError {
+    color:#D0021B;
+    font-size: 14px;
+}
+
+.redBorderError {
+    border: solid 1px #D0021B;
+}
+
+span.asteriskError {
+    color: #D0021B;
+}

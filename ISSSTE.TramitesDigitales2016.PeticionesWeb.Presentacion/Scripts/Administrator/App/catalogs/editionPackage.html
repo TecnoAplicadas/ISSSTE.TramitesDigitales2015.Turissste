@@ -1,0 +1,47 @@
+﻿<div data-ng-controller="editionPackageController as vm" data-ng-init="vm.initTypesProductCatalog()">
+    <!--/ START TITLE -->
+    <div class="col-xs-12">
+        <h2>Tipos de Producto en Paquetes Funerarios</h2>
+        <hr class="red">
+    </div>
+
+    <!--/ END TITLE -->
+    <!-- START CONTENT -->
+    <div class="col-xs-12">
+        <div class="alerts"></div>
+    </div>
+
+    <div class="col-xs-12 margintop-30">
+        <div class="panel panel-default">
+            <div class="panel-body overflow-table">
+                
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>En Paquete</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="type in vm.typesProduct">
+                                <td>{{type.TypeProduct.Name}}</td>
+                                <td><input type="checkbox" data-ng-model="type.IsIncludedInPackage" data-ng-change="vm.manageUpdatePackage(type)"  /></td>                                                                
+                            </tr>
+                        </tbody>                        
+                    </table>
+                
+            </div>
+            <!-- /.panel-default -->
+        </div>
+
+        <!-- /.panel -->
+        <div class="alert alert-info" data-ng-show="vm.requests == 0">
+            No se encontraron categorías de productos.
+        </div>
+
+        <p class="text-right col-if-12 col-md-12">
+            <button data-ng-click="vm.returnToPackageList(nc.navigatePackagesUrl)" class="btn btn-default" id="back">Regresar</button>            
+        </p>
+    </div>
+
+</div>

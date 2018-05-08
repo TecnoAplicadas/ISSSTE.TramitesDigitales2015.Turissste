@@ -1,0 +1,45 @@
+﻿.modal {
+   font-family:OpenSans-Regular,sans-serif;
+   font-size:16px;
+}
+.myBtnModal{
+   font-family:OpenSans-Regular,sans-serif;
+   font-size:16px;
+}
+@font-face {
+   font-family: 'OpenSans-Regular';
+   src: url('../../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+.modal {
+   text-align: center;
+}
+
+.modal:before {
+   content: '';
+   display: inline-block;
+   height: 100%;
+   vertical-align: middle; 
+}
+
+.modal-dialog {
+   display: inline-block;
+   text-align: left;
+   vertical-align: middle;
+}
+.modal-header{
+   background-color: #428bca;
+   color:#ffffff;
+}
+.modal-content{
+   min-width:250px;
+   width: 59%;/*59-42.5*/
+   transform: translateX(27%);/*36-53*/
+}
+.modalBody{
+   padding-top:5%;
+   padding-bottom: 1%;
+}
+.modalBodyBtn{
+   padding-top:3%;
+   padding-bottom: 2%;
+}

@@ -1,0 +1,57 @@
+﻿<div data-ng-controller="quoteDetailController as vm" data-ng-init="vm.initQuote()">
+    <!--<div class="alert alert-success hidden marg-T15px" id="exito">
+        <strong>¡Felicidades!</strong>
+        Tu cotización ha sido generada ahora puedes descargarla
+    </div>-->
+
+    <!-- Datos generales -->
+    <div class="row">
+
+
+        <div class="col-xs-12 marg-B20px overflow-table">
+            <h3 class="marg-B20px">Cotización</h3>
+
+            <table class="table grid2">
+
+                <thead>
+
+                    <tr>
+                        <th>#</th>
+                        <th><os-p>Producto</os-p></th>
+                        <th><os-p>Precio ISSSTE</os-p></th>
+                        <th><os-p>Precio público</os-p></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr data-ng-repeat="rq in vm.quote.QuotationItems">
+
+                        <th scope="row">{{$index + 1}}</th>
+                        <td><os-p>{{rq.Description}}</os-p></td>
+                        <td><os-p class="pIssste">{{rq.EntitlePrice | currency: "$"}}</os-p></td>
+                        <td><os-p class="ppublico">{{rq.PublicPrice | currency: "$"}}</os-p></td>
+
+                    </tr>
+
+                    <tr>
+                        <th scope="row">-</th>
+                        <td><os-p>Total</os-p></td>
+                        <td><os-p class="pIssste">{{vm.quote.EntitleTotal | currency: "$"}}</os-p></td>
+                        <td><os-p class="ppublico">{{vm.quote.PublicTotal | currency: "$"}}</os-p></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+            <p class="text-right col-if-12 col-md-12">
+                <!--<a href="#{{nc.requestsUrl}}" class="btn btn-default" id="back">Regresar</a>-->
+                <button data-ng-click="nc.navigateQuotes()" class="btn btn-default" id="back">Regresar</button>
+                <a data-ng-click="vm.getReport(vm.idQuote)" ng-href="{{vm.reportUrl}}" target="_blank" class="btn btn-primary btnconfirmar">Descargar</a>
+            </p>
+
+        </div>
+    </div>
+</div>
+

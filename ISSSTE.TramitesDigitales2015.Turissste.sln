@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISSSTE.TramitesDigitales2015.Turissste.Presentacion", "ISSSTE.TramitesDigitales2016.PeticionesWeb.Presentacion\ISSSTE.TramitesDigitales2015.Turissste.Presentacion.csproj", "{97ABCE18-DEE3-43CC-807C-7CF170145293}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISSSTE.Tramites2015.Common", "ISSSTE.Tramites2015.Common\ISSSTE.Tramites2015.Common.csproj", "{70146A9C-A112-4916-85EA-803FD6842EE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISSSTE.Tramites2015.Common.Security", "ISSSTE.Tramites2015.Common.Security\ISSSTE.Tramites2015.Common.Security.csproj", "{41EDE42E-3634-4BF0-A680-256B9A6E699B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISSSTE.TramitesDigitales2015.DataAccess", "ISSSTE.TramitesDigitales2015.DataAccess\ISSSTE.TramitesDigitales2015.DataAccess.csproj", "{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISSSTE.TramitesDigitales2015.Domain", "ISSSTE.TramitesDigitales2015.Domain\ISSSTE.TramitesDigitales2015.Domain.csproj", "{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISSSTE.TramitesDigitales2015.Business", "ISSSTE.TramitesDigitales2015.Business\ISSSTE.TramitesDigitales2015.Business.csproj", "{9270C6E9-99A0-4FC0-92FF-988F0435990F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ConviveTesting|Any CPU = ConviveTesting|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		RecreativoTesting|Any CPU = RecreativoTesting|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97ABCE18-DEE3-43CC-807C-7CF170145293}.ConviveTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{97ABCE18-DEE3-43CC-807C-7CF170145293}.ConviveTesting|Any CPU.Build.0 = Release|Any CPU
+		{97ABCE18-DEE3-43CC-807C-7CF170145293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97ABCE18-DEE3-43CC-807C-7CF170145293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97ABCE18-DEE3-43CC-807C-7CF170145293}.RecreativoTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{97ABCE18-DEE3-43CC-807C-7CF170145293}.RecreativoTesting|Any CPU.Build.0 = Release|Any CPU
+		{97ABCE18-DEE3-43CC-807C-7CF170145293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97ABCE18-DEE3-43CC-807C-7CF170145293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70146A9C-A112-4916-85EA-803FD6842EE4}.ConviveTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{70146A9C-A112-4916-85EA-803FD6842EE4}.ConviveTesting|Any CPU.Build.0 = Release|Any CPU
+		{70146A9C-A112-4916-85EA-803FD6842EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70146A9C-A112-4916-85EA-803FD6842EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70146A9C-A112-4916-85EA-803FD6842EE4}.RecreativoTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{70146A9C-A112-4916-85EA-803FD6842EE4}.RecreativoTesting|Any CPU.Build.0 = Release|Any CPU
+		{70146A9C-A112-4916-85EA-803FD6842EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70146A9C-A112-4916-85EA-803FD6842EE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41EDE42E-3634-4BF0-A680-256B9A6E699B}.ConviveTesting|Any CPU.ActiveCfg = ConviveTesting|Any CPU
+		{41EDE42E-3634-4BF0-A680-256B9A6E699B}.ConviveTesting|Any CPU.Build.0 = ConviveTesting|Any CPU
+		{41EDE42E-3634-4BF0-A680-256B9A6E699B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41EDE42E-3634-4BF0-A680-256B9A6E699B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41EDE42E-3634-4BF0-A680-256B9A6E699B}.RecreativoTesting|Any CPU.ActiveCfg = RecreativoTesting|Any CPU
+		{41EDE42E-3634-4BF0-A680-256B9A6E699B}.RecreativoTesting|Any CPU.Build.0 = RecreativoTesting|Any CPU
+		{41EDE42E-3634-4BF0-A680-256B9A6E699B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41EDE42E-3634-4BF0-A680-256B9A6E699B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}.ConviveTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}.ConviveTesting|Any CPU.Build.0 = Release|Any CPU
+		{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}.RecreativoTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}.RecreativoTesting|Any CPU.Build.0 = Release|Any CPU
+		{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC9E428B-2AC2-43B1-8E3C-3D7A3659875B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}.ConviveTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}.ConviveTesting|Any CPU.Build.0 = Release|Any CPU
+		{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}.RecreativoTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}.RecreativoTesting|Any CPU.Build.0 = Release|Any CPU
+		{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D32A5A-8611-4E1D-BF98-07A2F5A4F332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9270C6E9-99A0-4FC0-92FF-988F0435990F}.ConviveTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{9270C6E9-99A0-4FC0-92FF-988F0435990F}.ConviveTesting|Any CPU.Build.0 = Release|Any CPU
+		{9270C6E9-99A0-4FC0-92FF-988F0435990F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9270C6E9-99A0-4FC0-92FF-988F0435990F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9270C6E9-99A0-4FC0-92FF-988F0435990F}.RecreativoTesting|Any CPU.ActiveCfg = Release|Any CPU
+		{9270C6E9-99A0-4FC0-92FF-988F0435990F}.RecreativoTesting|Any CPU.Build.0 = Release|Any CPU
+		{9270C6E9-99A0-4FC0-92FF-988F0435990F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9270C6E9-99A0-4FC0-92FF-988F0435990F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://avegalugo.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ISSSTE.Tramites2015.Common.Security\\ISSSTE.Tramites2015.Common.Security.csproj
+		SccProjectName1 = ISSSTE.Tramites2015.Common.Security
+		SccLocalPath1 = ISSSTE.Tramites2015.Common.Security
+		SccProjectUniqueName2 = ISSSTE.Tramites2015.Common\\ISSSTE.Tramites2015.Common.csproj
+		SccProjectName2 = ISSSTE.Tramites2015.Common
+		SccLocalPath2 = ISSSTE.Tramites2015.Common
+		SccProjectUniqueName3 = ISSSTE.TramitesDigitales2015.Business\\ISSSTE.TramitesDigitales2015.Business.csproj
+		SccProjectName3 = ISSSTE.TramitesDigitales2015.Business
+		SccLocalPath3 = ISSSTE.TramitesDigitales2015.Business
+		SccProjectUniqueName4 = ISSSTE.TramitesDigitales2015.DataAccess\\ISSSTE.TramitesDigitales2015.DataAccess.csproj
+		SccProjectName4 = ISSSTE.TramitesDigitales2015.DataAccess
+		SccLocalPath4 = ISSSTE.TramitesDigitales2015.DataAccess
+		SccProjectUniqueName5 = ISSSTE.TramitesDigitales2015.Domain\\ISSSTE.TramitesDigitales2015.Domain.csproj
+		SccProjectName5 = ISSSTE.TramitesDigitales2015.Domain
+		SccLocalPath5 = ISSSTE.TramitesDigitales2015.Domain
+		SccProjectUniqueName6 = ISSSTE.TramitesDigitales2016.PeticionesWeb.Presentacion\\ISSSTE.TramitesDigitales2015.Turissste.Presentacion.csproj
+		SccProjectName6 = ISSSTE.TramitesDigitales2016.PeticionesWeb.Presentacion
+		SccLocalPath6 = ISSSTE.TramitesDigitales2016.PeticionesWeb.Presentacion
+	EndGlobalSection
+EndGlobal

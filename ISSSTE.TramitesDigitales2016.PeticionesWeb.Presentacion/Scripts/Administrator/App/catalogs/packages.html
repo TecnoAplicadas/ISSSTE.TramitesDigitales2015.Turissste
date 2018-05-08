@@ -1,0 +1,72 @@
+﻿<div data-ng-controller="packageController as vm" data-ng-init="vm.initPackagesList()">
+     <!--/ START TITLE -->
+    <div class="col-xs-12">
+        <h2>Administración de Paquetes Funerarios</h2>
+        <hr class="red">
+    </div>
+
+    <!--/ END TITLE -->
+
+    <!-- START CONTENT -->
+    <div class="col-xs-12">
+        <div class="alerts"></div>
+    </div>      
+
+    <div class="col-xs-12 margintop-30">
+        <div class="panel panel-default">
+            <div class="panel-body overflow-table">
+                <ng-form name="form" role="form" novalidate="novalidate">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Requerido</th>
+                                <th>Activo</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="package in vm.packages">
+                                <td><span data-ng-hide="vm.packageInEdition(package.PackageId)">{{package.Name}}</span><input type="text" data-ng-model="package.Name" class="form-control" data-ng-show="vm.packageInEdition(package.PackageId)" data-ng-maxlength="100" /></td>
+                                <td><input type="checkbox" data-ng-model="package.IsRequired" ng-disabled="!vm.packageInEdition(package.PackageId)" /></td>
+                                <td><input type="checkbox" data-ng-model="package.IsActive" ng-disabled="!vm.packageInEdition(package.PackageId)" /></td>
+                                <td>
+                                    <div class="pull-right">
+                                        <!--<a ng-href="#{{nc.getRequestDetailUrl(actualRequest.RequestId)}}">
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    Ver detalle
+                                </button>
+                            </a>-->
+                                        <button type="button" data-ng-click="vm.setEditionMode(package.PackageId)" data-ng-hide="vm.packageInEdition(package.PackageId)" class="btn btn-primary btn-sm">
+                                            Editar
+                                        </button>
+                                        <button type="submit"  data-ng-click="vm.updatePackage(package)" class="btn btn-primary btn-sm" data-ng-show="vm.packageInEdition(package.PackageId)">Actualizar</button>
+                                        <button type="button" data-ng-click="vm.setViewMode()" class="btn btn-primary btn-sm" data-ng-show="vm.packageInEdition(package.PackageId)">Cancelar</button>
+                                    </div>
+                                </td>
+                                <td><button type="button" data-ng-click="vm.goToDetail(package.PackageId,nc.navigateDetailPackageUrl)" class="btn btn-primary btn-sm" data-ng-hide="vm.packageInEdition(package.PackageId)">Detalle</button></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><input type="text" class="form-control" data-ng-model="vm.packageName" data-ng-maxlength="100" /></td>
+                                <td><input type="checkbox" data-ng-model="vm.packageIsRequerided" /></td>
+                                <td><input type="checkbox" data-ng-model="vm.packageIsActive" /></td>
+                                <td><button type="submit"  data-ng-click="vm.createPackage()" class="btn btn-primary btn-sm">Agregar</button></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </ng-form>
+            </div>
+            <!-- /.panel-default -->
+        </div>
+
+        <!-- /.panel -->
+        <div class="alert alert-info" data-ng-show="vm.requests == 0">
+            No se encontraron paquetes.
+        </div>
+    </div>
+
+    </div>

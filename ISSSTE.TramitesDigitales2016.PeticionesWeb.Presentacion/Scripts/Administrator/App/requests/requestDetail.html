@@ -1,0 +1,348 @@
+﻿<div data-ng-controller="requestDetailController as vm" data-ng-init="vm.initRequest()">
+    <div class="col-xs-12">
+        <h2>Solicitud {{vm.requestInfo.Folio}}</h2>
+        <hr class="red">
+    </div>
+
+    <!--/ END TITLE -->
+    <!-- START CONTENT -->
+
+    <div class="col-xs-12">
+        <div class="alerts"></div>
+    </div>
+
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#entitle" aria-controls="home" role="tab" data-toggle="tab">
+                    Datos
+                    del derechohabiente
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#holder" aria-controls="hospedaje" role="tab" data-toggle="tab">
+                    Datos del
+                    titular
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#beneficiaries" aria-controls="pago" role="tab" data-toggle="tab">
+                    Datos de
+                    los
+                    beneficiarios
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#states" aria-controls="estado" role="tab" data-toggle="tab">
+                    Resultado de
+                    la revisón
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        <!-- Start tab -->
+        <div role="tabpanel" class="tab-pane active" id="entitle">
+
+            <div class="form-group col-xs-6">
+                <h3>Información general</h3>
+            </div>
+            <div class="col-xs-6">
+                <div class="pull-right margintop-20">
+                    <a href="#{{nc.searchUrl}}" class="btn btn-default" type="button">
+                        Volver a consulta de solicitudes
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="form-group col-md-4" data-ng-show="vm.requestInfo.Entitle.NoISSSTE">
+                    <label class="control-label">Número de ISSSTE:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.NoISSSTE" disabled>
+                </div>
+                <div class="form-group col-md-4" data-ng-show="vm.requestInfo.Entitle.Delegation">
+                    <label class="control-label">Delegación asignada:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.Delegation.Name"
+                           disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Clave Única de Registro de Población (CURP):</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.CURP" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Registro Federal del Contribuyente (RFC):</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.RFC" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Nombre(s):</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.Name" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Primer apellido:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.PaternalLastName"
+                           disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Segundo apellido:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.MaternalLastName"
+                           disabled>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="control-label">Sexo:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.Gender" disabled>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="control-label">Fecha de nacimiento:</label>
+                    <input class="form-control" type="text"
+                           value="{{vm.requestInfo.Entitle.Birthdate | date:'dd/MM/yyyy'}}"
+                           disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Lugar de nacimiento:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.Birthplace" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Estado civil:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.MaritalStatus"
+                           disabled>
+                </div>
+                <div class="form-group col-xs-12">
+                    <h3>Dirección</h3>
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="control-label">Código postal:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.ZipCode" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Nombre de vialidad:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.Street" disabled>
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="control-label">Número exterior:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.NumExt" disabled>
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="control-label">Número interior:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.NumInt" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Nombre del asentamiento humano o colonia: </label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.Colony" disabled>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="control-label">Nombre del Municipio o Delegación:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.City" disabled>
+                </div>
+                <h3 class="col-xs-12">Datos de contacto</h3>
+
+
+                <div class="form-group col-md-6">
+                    <label class="control-label">Teléfono:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.Telephone" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Correo electrónico:</label>
+                    <input class="form-control" type="text" data-ng-model="vm.requestInfo.Entitle.Email" disabled>
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 marginbot-50">
+                <div class="pull-right margintop-20 marginbot--10">
+                    <a class="btn btn-default" onclick="window.scrollTo(0,0)">
+                        <i class="fa fa-arrow-up"></i>Subir
+                    </a>
+                </div>
+            </div>
+            <!-- End Tab -->
+
+        </div>
+        <!-- /.Tab panes -->
+        <!-- Tab panes -->
+        <div role="tabpanel" class="tab-pane" id="holder">
+
+            <div class="form-group col-xs-6">
+                <h3>Fosa seleccionada</h3>
+            </div>
+            <div class="col-xs-6">
+                <div class="pull-right margintop-20">
+                    <a href="#{{nc.searchUrl}}" class="btn btn-default" type="button">
+                        Volver a consulta de solicitudes
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Importe</th>
+                                <th>IVA</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{vm.requestInfo.PitName}}</td>
+                                <td>{{vm.requestInfo.PitPrice | currency}}</td>
+                                <td>{{vm.requestInfo.PitIva | currency}}</td>
+                                <td>{{vm.requestInfo.PitTotal | currency}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <h3>Documentos</h3>
+            </div>
+
+            <div class="form-group col-md-6">
+                <file-display nfu-name="Identificación oficial vigente (INE antes IFE):"
+                              nfu-document="vm.requestInfo.RequestDocuments[0]"></file-display>
+            </div>
+
+            <div class="form-group col-md-6">
+                <file-display nfu-name="Clave Única de Registro de Población (CURP):"
+                              nfu-document="vm.requestInfo.RequestDocuments[1]"></file-display>
+            </div>
+
+            <div class="form-group col-md-6">
+                <file-display nfu-name="Credencial de pensionado o jubilado:"
+                              nfu-document="vm.requestInfo.RequestDocuments[2]"></file-display>
+            </div>
+
+            <div class="col-xs-12 marginbot-50">
+                <div class="pull-right margintop-20 marginbot--10">
+                    <a class="btn btn-default" onclick="window.scrollTo(0,0)">
+                        <i class="fa fa-arrow-up"></i>Subir
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.tabpanel -->
+        <!-- Tab panes -->
+        <div role="tabpanel" class="tab-pane" id="beneficiaries">
+
+            <!-- Start Tab -->
+            <div class="form-group col-xs-6">
+                <h3>Beneficiarios</h3>
+            </div>
+            <div class="col-xs-6">
+                <div class="pull-right margintop-20">
+                    <a href="#{{nc.searchUrl}}" class="btn btn-default" type="button">
+                        Volver a consulta de solicitudes
+                    </a>
+                </div>
+            </div>
+
+            <div data-ng-repeat="actualBeneficiary in vm.requestInfo.Beneficiaries">
+                <div class="form-group col-xs-12">
+                    <h3>Beneficiario {{$index + 1}}</h3>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="control-label">Clave Única de Registro de Población (CURP): </label>
+                    <input class="form-control" type="text" data-ng-model="actualBeneficiary.CURP" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Registro Federal del Contribuyente (RFC):</label>
+                    <input class="form-control" type="text" data-ng-model="actualBeneficiary.RFC" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Nombre(s):</label>
+                    <input class="form-control" type="text" data-ng-model="actualBeneficiary.Name" disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Primer apellido:</label>
+                    <input class="form-control" type="text" data-ng-model="actualBeneficiary.PaternalLastName"
+                           disabled>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Segundo apellido:</label>
+                    <input class="form-control" type="text" data-ng-model="actualBeneficiary.MaternalLastName"
+                           disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Fecha de nacimiento:</label>
+                    <input class="form-control" type="text" value="{{actualBeneficiary.Birthdate | date:'dd/MM/yyyy'}}"
+                           disabled>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="control-label">Parentesco:</label>
+                    <input class="form-control" type="text" data-ng-model="actualBeneficiary.Relationship" disabled>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <file-display nfu-name="Identificación oficial vigente (INE antes IFE):"
+                                  nfu-document="actualBeneficiary.BeneficiaryDocuments[0]"></file-display>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <file-display nfu-name="Clave Única de Registro de Población (CURP):"
+                                  nfu-document="actualBeneficiary.BeneficiaryDocuments[1]"></file-display>
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 marginbot-50">
+                <div class="pull-right margintop-20 marginbot--10">
+                    <a class="btn btn-default" onclick="window.scrollTo(0,0)">
+                        <i class="fa fa-arrow-up"></i>Subir
+                    </a>
+                </div>
+            </div>
+            <!-- End Tab -->
+
+        </div>
+        <!-- /.tabpanel -->
+        <!-- Tab panes -->
+        <div role="tabpanel" class="tab-pane" id="states">
+
+            <div class="col-xs-12">
+                <div class="pull-right margintop-20 marginbot--10">
+                    <a href="#{{nc.searchUrl}}" class="btn btn-default" type="button">
+                        Volver a consulta de solicitudes
+                    </a>
+                    <button class="btn btn-primary" type="button" data-ng-disabled="vm.error"
+                            data-ng-click="vm.completeRequestReview(nc.searchUrl)">
+                        Guardar solicitud
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <h3>Resultado de la revisón del tramite</h3>
+            </div>
+            <!-- Start Tab -->
+            <div class="form-group col-xs-12">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default" data-ng-class="{ 'btn-danger': actualStatus.IsCancel }"
+                           data-ng-repeat="actualStatus in vm.nextStatus"
+                           data-ng-click="vm.setSelectedNextStatus(actualStatus)">
+                        <input type="radio" name="options" id="option1" autocomplete="off"> {{actualStatus.Name}}
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label class="control-label">Comentarios:</label>
+                <textarea class="form-control" rows="3" data-ng-model="vm.nextStatusObservations"></textarea>
+            </div>
+
+        </div>
+        <!-- /.tabpanel -->
+
+    </div>
+</div>
+<script>
+    UI.initTabs();
+</script>

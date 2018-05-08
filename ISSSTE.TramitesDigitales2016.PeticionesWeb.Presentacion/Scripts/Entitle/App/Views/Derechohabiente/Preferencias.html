@@ -1,0 +1,62 @@
+﻿<script src="https://framework-gb.cdn.gob.mx/data/encuesta_v1.0/qa/encuestas.js"></script>
+<div>
+    <div class="row top-buffer">
+        <h3 class="col-md-12">Paquetes según preferencias</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <span style="width: 35px; height: 6px; background-color: #D0021B !important; position: absolute"></span>
+            <hr style="position:relative; margin-top: 0px; margin-bottom: 65px;" />
+        </div>
+    </div>
+    <div class="row  bottom-buffer">
+        <div class="col-lg-12">
+            <div class="col-lg-4 text-center">
+                <button type="button" class="btn btn-link" ng-click="consultaTurissste()">Consulta mas paquetes en TURISSSTE <span class="glyphicon glyphicon-share" aria-hidden="true"></span></button>
+            </div>
+            <div class="col-lg-4 text-center">
+                <button type="button" ng-click="consultaGlobalizadorSite()" class="btn btn-link">Cotiza más servicios <span class="glyphicon glyphicon-share" aria-hidden="true"></span></button>
+            </div>
+            <div class="col-lg-4 text-center">
+                <button type="button" ng-click="consultaSimulador()" class="btn btn-link">Consulta el simulador de crédito turístico <span class="glyphicon glyphicon-share" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                <span class="blackColor">
+                    En base a tus preferencias te sugerimos el siguiente destino.
+                </span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row bottom-buffer">
+        <div class="col-md-12" style="text-align:center">
+            <img class="img-rounded" ng-src="data:image/jpeg; base64, {{paqueteTuristicoDerechohabiente.Imagen}}" ng-if="paqueteTuristicoDerechohabiente.Imagen != null" width="800" height="500" />
+            <img class="img-rounded" src="{{imagenNoDisponible}}" ng-if="imagenNoDisponible != null" width="800" height="500" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                <span class="blackColor">
+                    También te sugerimos el siguiente paquete promocional.
+                </span>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row bottom-buffer">
+        <div class="col-md-12" style="text-align:center">
+            <img class="img-rounded" ng-src="data:image/jpeg; base64, {{paqueteTuristicoPromocionado.Imagen}}" ng-if="paqueteTuristicoPromocionado.Imagen != null" width="800" height="500" />
+            <img class="img-rounded" src="{{imagenNoDisponiblePromocion}}" ng-if="imagenNoDisponiblePromocion != null" width="800" height="500" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div style="font-weight:bold; text-justify">Si te interesa alguno de los paquetes o requires información comunicate al 01 (55) 5128 1400 Ext 17740 y 17778</div>
+        </div>
+    </div>
+</div>

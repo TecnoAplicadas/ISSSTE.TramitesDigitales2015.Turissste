@@ -1,0 +1,86 @@
+﻿<script src="https://framework-gb.cdn.gob.mx/data/encuesta_v1.0/qa/encuestas.js"></script>
+<div>
+    <div class="row">
+        <h3 class="col-md-12">Encuesta de preferencias turísticas</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <span style="width: 35px; height: 6px; background-color: #D0021B !important; position: absolute"></span>
+            <hr style="position:relative; margin-top: 0px; margin-bottom: 65px;" />
+        </div>
+    </div>
+    <form name="entitlePreferenceForm" id="entitlePreferenceForm" role="form" ng-submit="saveQuiz(entitlePreferenceForm)" novalidate>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info">
+                    <span class="blackColor">
+                        Por favor, responde la siguiente encuesta para mostrarte el paquete turistico mas adecuado a tus preferencias.
+                    </span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label" for="slctEncuestaTipoDestino">Tipo de destino preferido<span ng-class="{asteriskError: entitlePreferenceForm.slctEncuestaTipoDestino.$invalid && entitlePreferenceForm.slctEncuestaTipoDestino.$dirty }">*</span>:</label>
+                <select id="slctEncuestaTipoDestino" name="slctEncuestaTipoDestino" ng-model="encuestaTipoDestino" class="form-control" ng-options="ItemTipoDes.Nombre for ItemTipoDes in tiposDestinoList" required
+                        ng-class="{redBorderError: entitlePreferenceForm.slctEncuestaTipoDestino.$invalid && entitlePreferenceForm.slctEncuestaTipoDestino.$dirty}">
+                    <option value="" disabled selected>--Selecciona-</option>
+                </select>
+                <span class="tabValidation">*</span>
+                <span class="angularMsgError" ng-messages="entitlePreferenceForm.slctEncuestaTipoDestino.$error" ng-if="entitlePreferenceForm.slctEncuestaTipoDestino.$dirty">
+                    <span ng-messages-include="mensajes-error"></span>
+                </span>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label" for="slctEncuestaTemporada">Temporada vacacional favorita<span ng-class="{asteriskError: entitlePreferenceForm.slctEncuestaTemporada.$invalid && entitlePreferenceForm.slctEncuestaTemporada.$dirty }">*</span>:</label>
+                <select id="slctEncuestaTemporada" class="form-control" name="slctEncuestaTemporada" ng-model="encuestaTemporada" ng-options="ItemTemporada.Nombre for ItemTemporada in temporadasList" required
+                        ng-class="{redBorderError: entitlePreferenceForm.slctEncuestaTemporada.$invalid && entitlePreferenceForm.slctEncuestaTemporada.$dirty}">
+                    <option value="" disabled selected>--Selecciona--</option>
+                </select>
+                <span class="tabValidation">*</span>
+                <span class="angularMsgError" ng-messages="entitlePreferenceForm.slctEncuestaTemporada.$error" ng-if="entitlePreferenceForm.slctEncuestaTemporada.$dirty">
+                    <span ng-messages-include="mensajes-error"></span>
+                </span>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label" for="slctTipoViaje">Tipo de viaje preferido<span ng-class="{asteriskError: entitlePreferenceForm.slctTipoViaje.$invalid && entitlePreferenceForm.slctTipoViaje.$dirty }">*</span>:</label>
+                <select id="slctTipoViaje" class="form-control" name="slctTipoViaje" ng-model="encuestaTipoViaje" ng-options="ItemTipoViaje.Nombre for ItemTipoViaje in tiposViajeList" required
+                        ng-class="{redBorderError: entitlePreferenceForm.slctTipoViaje.$invalid && entitlePreferenceForm.slctTipoViaje.$dirty}">
+                    <option value="" disabled selected>--Selecciona--</option>
+                </select>
+                <span class="tabValidation">*</span>
+                <span class="angularMsgError" ng-messages="entitlePreferenceForm.slctTipoViaje.$error" ng-if="entitlePreferenceForm.slctTipoViaje.$dirty">
+                    <span ng-messages-include="mensajes-error"></span>
+                </span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label" for="slctMotivoViaje">Motivo del viaje<span ng-class="{asteriskError: entitlePreferenceForm.slctMotivoViaje.$invalid && entitlePreferenceForm.slctMotivoViaje.$dirty }">*</span>:</label>
+                <select id="slctMotivoViaje" class="form-control" name="slctMotivoViaje" ng-model="encuestaMotivoViaje" ng-options="ItemMotivo.Nombre for ItemMotivo in motivosViajeList" required
+                        ng-class="{redBorderError: entitlePreferenceForm.slctMotivoViaje.$invalid && entitlePreferenceForm.slctMotivoViaje.$dirty}">
+                    <option value="" disabled selected>--Selecciona--</option>
+                </select>
+                <span class="tabValidation">*</span>
+                <span class="angularMsgError" ng-messages="entitlePreferenceForm.slctMotivoViaje.$error" ng-if="entitlePreferenceForm.slctMotivoViaje.$dirty">
+                    <span ng-messages-include="mensajes-error"></span>
+                </span>
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-4">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="setMiddle col-md-6">
+                <p>*Campos obligatorios</p>
+            </div>
+            <div class="setMiddle button-group col-md-6">
+                <button class="btn btn-primary pull-right" type="submit">Enviar encuesta</button>
+            </div>
+        </div>
+    </form>
+</div>

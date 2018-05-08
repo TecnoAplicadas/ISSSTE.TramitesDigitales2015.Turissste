@@ -1,0 +1,43 @@
+﻿@using ISSSTE.Tramites2015.Common.Security.Helpers
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdminTurissste.cshtml";
+}
+
+
+<div class="row">
+    <div id="side-menu" class="side-menu collapse">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="side-menu-container">
+            @if (Request.GetOwinContext().Authentication.User.Identity.IsAuthenticated)
+            {
+                var user = Request.GetOwinContext().GetAuthenticatedUser();
+                var userRole = user.Roles[0].Name;
+                <ul class="nav navbar-nav">
+                    @if (userRole == "Administrador ofertas turisticas") {
+                        <li>
+                            <a href="../Administrator/Index#!/AdministracionPaquetes">Administración de paquetes</a>
+                        </li>
+                    } else
+                    {
+                        <li>
+                            <a href="../Administrator/Index#!/Reportes">Generación de reportes</a>
+                        </li>
+                    }
+                </ul>
+            }
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        <div class="side-body" ng-view></div>
+    </div>
+</div>
+<script type="text/ng-template" id="mensajes-error">
+    <span ng-message="required">Este campo es obligatorio.</span>
+    <span ng-message="minlength">Este campo es muy corto.</span>
+    <span ng-message="maxlength">Este campo es muy largo.</span>
+    <span ng-message="pattern">El formato no es correcto.</span>
+</script>
+

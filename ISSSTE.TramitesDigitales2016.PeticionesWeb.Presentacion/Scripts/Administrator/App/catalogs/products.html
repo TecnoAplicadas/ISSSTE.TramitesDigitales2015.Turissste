@@ -1,0 +1,66 @@
+﻿<div data-ng-controller="productController as vm" data-ng-init="vm.initProducts()">
+    
+        <!--/ START TITLE -->
+        <div class="col-xs-12">
+            <h2>Administración de Productos y Servicios</h2>
+            <hr class="red">
+        </div>
+
+        <!--/ END TITLE -->
+        <!-- START CONTENT -->
+
+        <div class="col-xs-12">
+            <div class="alerts"></div>
+        </div>
+
+        <div class="col-xs-2 pull-left paddingleft-0">
+            Mostrar:
+            <select class="form-control"
+                    data-ng-options="actualPageSize + ' resultados' for actualPageSize in vm.pageSizes"
+                    data-ng-model="vm.selectedPageSize" data-ng-change="vm.serchProducts()"></select>
+        </div>
+        <div class="col-xs-10 pull-right marginbot-20 paddingright-0" data-ng-show="vm.products.length > 0">
+            <nav class="text-right">
+                <ul class="pagination">
+                    <li data-ng-class="{ disabled: vm.isFirstPage() }">
+                        <a data-ng-click="vm.changeToPreviousPage()">&laquo;</a>
+                    </li>
+                    <li data-ng-repeat="actualPage in vm.pages"
+                        data-ng-class="{ active: vm.isPageSelected(actualPage) }">
+                        <a data-ng-click="vm.changeSelectedPage(actualPage)">{{actualPage}}</a>
+                    </li>
+                    <li data-ng-class="{ disabled: vm.isLasPage() }">
+                        <a data-ng-disabled="vm.isLasPage()"
+                           data-ng-click="vm.changeToNextPage()">&raquo;</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>        
+
+    <div class="row">
+        <div class="post col-md-4 col-if-4 col-xs-12" data-ng-repeat="product in vm.products">
+            <img data-ng-src="data:image/png;base64,{{product.ImageToBase64}}" data-ng-show="vm.hasImage(product)" class="image" />
+            <img data-ng-src="{{vm.getNoImage()}}" class="image" data-ng-hide="vm.hasImage(product)" />
+            <span class="overlap">
+                <div class="col-xs-12"><h5 class="pN">{{product.ProductFromSirvel.Name}}</h5></div>
+                <span class="col-xs-12">
+                    <h5 class="pN">{{product.ProductFromSirvel.Description}}</h5>
+                </span>
+
+                <div class="col-xs-12 show-grid" data-ng-hide="vm.hasImage(product)">
+
+                    <file-upload nfu-name="Imagen de Producto:" nfu-accepts=".jpg, .png"
+                                 nfu-document="product.image"></file-upload>
+
+                </div>
+
+                <div class="col-lg-12">
+                    <button class="btn btn-primary pull-right btn-sm mas" data-ng-click="vm.removeImageFromProduct(product)" data-ng-show="vm.hasImage(product)" type="submit">Quitar Imagen</button>
+                    <button class="btn btn-primary pull-right btn-sm mas" data-ng-click="vm.addImageToProduct(product)" data-ng-show="vm.isReadyImage(product)" type="submit">Agregar Imagen</button>
+                </div>
+            </span>
+        </div>
+    </div>
+
+
+    </div>
